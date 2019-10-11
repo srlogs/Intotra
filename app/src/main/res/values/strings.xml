@@ -6,4 +6,9 @@
     <string name="tab_2">Tab 2</string>
     <string name="tab_3">Tab 3</string>
     <string name="tab_4">Tab 4</string>
+    <string name="source">SOURCE :</string>
+    <string name="destination">DESTINATION :</string>
+    <string name="find_my_place">Find My Place</string>
+    <string name="choose_a_place">Choose A Place</string>
+    <string name="nxt">Next</string>
 </resources>
