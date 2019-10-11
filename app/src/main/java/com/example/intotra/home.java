@@ -8,14 +8,17 @@ import com.google.android.material.tabs.TabLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-public class home extends AppCompatActivity implements
-        Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener,Tab4.OnFragmentInteractionListener{
+public class home extends AppCompatActivity
+        implements
+        Tab1.OnFragmentInteractionListener,Tab2.OnFragmentInteractionListener,Tab3.OnFragmentInteractionListener,Tab4.OnFragmentInteractionListener
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home);
+
+        setContentView(R.layout.home_main);
 
         TabLayout tabLayout = findViewById(R.id.tablayout);
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ic_home));
@@ -32,7 +35,8 @@ public class home extends AppCompatActivity implements
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener()
         {
             @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+            public void onTabSelected(TabLayout.Tab tab)
+            {
                 viewPager.setCurrentItem(tab.getPosition());
             }
 
