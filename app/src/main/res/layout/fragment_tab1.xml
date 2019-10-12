@@ -26,12 +26,12 @@
     <TextView
         android:id="@+id/source"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="165dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginRight="19dp"
         android:layout_marginBottom="50dp"
         android:shadowColor="#00474444"
         android:text="@string/source"
@@ -42,63 +42,75 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/destination"
+        app:layout_constraintEnd_toStartOf="@+id/autocomplete_fragment"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="visible" />
 
-    <LinearLayout
-        android:layout_width="73dp"
-        android:layout_height="32dp"
-        android:layout_marginStart="73dp"
-        android:layout_marginLeft="73dp"
-        android:layout_marginTop="159dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginRight="156dp"
-        android:layout_marginBottom="101dp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/source"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/linearlayout">
+    <!--    <LinearLayout-->
+<!--        android:layout_width="73dp"-->
+<!--        android:layout_height="32dp"-->
+<!--        android:layout_marginStart="73dp"-->
+<!--        android:layout_marginLeft="73dp"-->
+<!--        android:layout_marginTop="159dp"-->
+<!--        android:layout_marginEnd="156dp"-->
+<!--        android:layout_marginRight="156dp"-->
+<!--        android:layout_marginBottom="101dp"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/radioGroup"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/source"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:id="@+id/linearlayout">-->
 
-        <Spinner
-            android:id="@+id/spinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="25dp"
-            android:layout_marginRight="25dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-        </Spinner>
-    </LinearLayout>
+<!--        <Spinner-->
+<!--            android:id="@+id/spinner"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginEnd="25dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+<!--        </Spinner>-->
+<!--    </LinearLayout>-->
+
+
+    <fragment
+        android:id="@+id/autocomplete_fragment"
+        android:name="com.google.android.libraries.places.widget.AutocompleteSupportFragment"
+        android:layout_width="241dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="138dp"
+        tools:layout_editor_absoluteY="22dp" />
 
     <TextView
         android:id="@+id/destination"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="24dp"
         android:layout_marginStart="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="256dp"
         android:layout_marginRight="256dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/destination"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/autocomplete_fragment"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="239dp"
         tools:visibility="visible" />
 
 <!--    -->
     <SearchView
         android:id="@+id/searchView3"
-        android:layout_width="223dp"
-        android:layout_height="37dp"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
         android:layout_marginStart="155dp"
         android:layout_marginLeft="155dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="33dp"
         android:layout_marginRight="33dp"
         android:background="@color/light_blue"
@@ -114,29 +126,28 @@
         android:layout_height="44dp"
         android:layout_marginStart="136dp"
         android:layout_marginLeft="136dp"
-        android:layout_marginTop="19dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="205dp"
         android:layout_marginRight="205dp"
-        android:layout_marginBottom="243dp"
+        android:layout_marginBottom="254dp"
         android:drawableEnd="@drawable/ic_keyboard_arrow"
+        android:drawableRight="@drawable/ic_keyboard_arrow"
         android:text="@string/nxt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView3"
-        tools:ignore="MissingConstraints"
-        android:drawableRight="@drawable/ic_keyboard_arrow" />
+        tools:ignore="MissingConstraints" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="183dp"
-        android:layout_height="62dp"
+        android:layout_width="147dp"
+        android:layout_height="83dp"
         android:layout_marginStart="127dp"
         android:layout_marginLeft="127dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="101dp"
         android:layout_marginRight="101dp"
-        android:layout_marginBottom="15dp"
         app:layout_constraintBottom_toTopOf="@+id/searchView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,18 +157,17 @@
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/find_my_place"
             android:textStyle="bold"
-            android:checked="false"
-            android:onClick="radio1"
             tools:ignore="OnClick" />
 
         <RadioButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="false"
             android:text="@string/choose_a_place"
-            android:textStyle="bold"
-            android:checked="false"/>
+            android:textStyle="bold" />
     </RadioGroup>
 
 

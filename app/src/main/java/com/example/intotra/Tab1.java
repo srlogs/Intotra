@@ -1,7 +1,9 @@
 package com.example.intotra;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,12 +11,18 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import com.google.android.gms.common.api.Status;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 
+import java.util.Arrays;
+
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-
-
 
 public class Tab1 extends Fragment
 {
@@ -46,10 +54,36 @@ public class Tab1 extends Fragment
     }
 
     PlacesClient placesclient;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    public void onCreate(Bundle savedInstanceState , AppCompatActivity activity)
+    {
         super.onCreate(savedInstanceState);
+        activity.setContentView(R.layout.fragment_tab1);
+        String apikey="AIzaSyAFZTmbvyhVyolG1H9wzII51GlAeiMOtEo";
+        if(!Places.isInitialized())
+        {
+            Places.initialize(activity.getApplicationContext(),apikey);
+        }
+        placesclient = Places.createClient(this);
+        final AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment)
+                activity.getSupportFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+        autocompleteSupportFragment.setPlaceFields(Arrays.asList(Place.Field.ID,Place.Field.LAT_LNG,Place.Field.NAME));
+        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place)
+            {
+                // TODO: Get info about the selected place.
+
+            }
+
+            @Override
+            public void onError(Status status)
+            {
+                // TODO: Handle the error.
+
+            }
+        });
+
 
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
@@ -57,10 +91,14 @@ public class Tab1 extends Fragment
         }
 
     }
+
+
+
+    @SuppressLint("NewApi")
     public void function(AppCompatActivity activity)
     {
-        Spinner spinner = activity.findViewById(R.id.spinner);
-        ArrayAdapter<String> myAdapter=new ArrayAdapter<String>(Tab1.this, android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.places));
+                Spinner spinner = activity.findViewById(R.id.spinner);
+        ArrayAdapter<String> myAdapter=new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,getResources().getStringArray(R.array.places));
         myAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(myAdapter);
     }
@@ -109,4 +147,5 @@ public class Tab1 extends Fragment
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
     }
+
 }
