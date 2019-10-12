@@ -11,4 +11,18 @@
     <string name="find_my_place">Find My Place</string>
     <string name="choose_a_place">Choose A Place</string>
     <string name="nxt">Next</string>
+    <string-array name="places">
+            <item>ooty</item>
+            <item>kodaikanal</item>
+            <item>thirupati</item>
+            <item>maldives</item>
+            <item>ajanta caves</item>
+            <item>ladakh range</item>
+            <item>velangani</item>
+            <item>decca mekka</item>
+            <item>goa</item>
+            <item>pondicherry</item>
+    </string-array>
+
+
 </resources>
